@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside>
+  <div class="logo">Lumen<b>.</b></div>
+  <button data-go="home" class="on">Overview</button>
+  <button data-go="explore">Explore books</button>
+  <button data-go="shelf">My bookshelf <span class="badge" id="shelfCount">0</span></button>
+  <button data-go="request">Book requests</button>
+  <button data-go="history">Reading history</button>
+  <button data-go="desk">Librarian desk</button>
+  <p class="quote">“A reader lives a thousand lives before he dies.”</p>
+</aside>
+
+<main>
+<section id="home" class="on">
+  <h1 id="hello">Welcome back.</h1>
+  <p class="sub">Borrow, return and request books in one quiet place.</p>
+  <div class="stats">
+    <div class="stat"><b id="sBorrowed">0</b><span>Currently borrowed</span></div>
+    <div class="stat"><b id="sDue">—</b><span>Next due date</span></div>
+    <div class="stat"><b id="sRead">0</b><span>Books returned</span></div>
+    <div class="stat"><b id="sReq">0</b><span>Open requests</span></div>
+  </div>
+  <h2>Popular right now</h2>
+  <div class="grid" id="popular"></div>
+</section>
+
+<section id="explore">
+  <h1>Find your next book.</h1>
+  <p class="sub">Search the collection by title or author.</p>
+  <div class="tools">
+    <input id="q" type="search" placeholder="Search books…" aria-label="Search books">
+    <select id="genre" aria-label="Genre"></select>
+    <select id="sort" aria-label="Sort">
+      <option value="pop">Most popular</option>
+      <option value="az">Title A–Z</option>
+      <option value="new">Newest first</option>
+    </select>
+  </div>
+  <div class="grid" id="all"></div>
+</section>
+
+<section id="shelf">
+  <h1>My bookshelf.</h1>
+  <p class="sub">Books you have borrowed. Loans last 14 days.</p>
+  <div id="shelfList"></div>
+</section>
+
+<section id="request">
+  <h1>Suggest a book.</h1>
+  <p class="sub">Can't find a title? Tell the library.</p>
+  <form id="reqForm">
+    <input id="rTitle" placeholder="Book title" required>
+    <input id="rAuthor" placeholder="Author" required>
+    <textarea id="rWhy" rows="3" placeholder="Why should we add it? (optional)"></textarea>
+    <button class="btn">Send request</button>
+  </form>
+  <h2>Your requests</h2>
+  <div id="reqList"></div>
+</section>
+
+<section id="history">
+  <h1>Reading history.</h1>
+  <p class="sub">Every book you have returned.</p>
+  <div id="histList"></div>
+</section>
+
+<section id="desk">
+  <h1>Librarian desk.</h1>
+  <p class="sub">Demo mode: changes are saved in this browser only.</p>
+  <h2 style="margin-top:0">Add to the collection</h2>
+  <form id="addForm">
+    <input id="aTitle" placeholder="Book title" required>
+    <input id="aAuthor" placeholder="Author" required>
+    <div class="two">
+      <select id="aGenre"></select>
+      <input id="aCopies" type="number" min="1" value="1" aria-label="Copies">
+    </div>
+    <button class="btn">Add book</button>
+  </form>
+  <h2>Member requests</h2>
+  <div id="deskReq"></div>
+  <h2>Inventory</h2>
+  <div id="inventory"></div>
+</section>
+</main>
+<div id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
